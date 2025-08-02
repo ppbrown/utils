@@ -12,18 +12,16 @@ import time
 import argparse
 from tqdm import tqdm
 
-def parse_args():
-    parser = argparse.ArgumentParser(
-        description="Sleep for a specified number of seconds with a progress bar."
-    )
-    parser.add_argument(
-        "seconds",
-        type=int,
-        help="Total number of seconds to sleep (must be a positive integer)",
-    )
-    return parser.parse_args()
+parser = argparse.ArgumentParser(
+    description="Sleep for a specified number of seconds with a progress bar."
+)
+parser.add_argument(
+    "seconds",
+    type=int,
+    help="Total number of seconds to sleep (must be a positive integer)",
+)
+args = parser.parse_args()
 
-args = parse_args()
 if args.seconds < 1:
     parser.error("seconds must be at least 1")
 
